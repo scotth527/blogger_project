@@ -1,10 +1,22 @@
 <h1><%= @article.title %></h1>
 <p>
-  Tags:
-  <% @article.tags.each do |tag| %>
-    <%= link_to tag.name, tag_path(tag) %>
-  <% end %>
+    <% if @article.tags.length() > 0 %>
+        <span>Tags:</span>
+        <% @article.tags.each do |tag| %>
+          <%= link_to tag.name, tag_path(tag) %>
+        <% end %>
+    <% end %>
+
 </p>
+
+
+<p>
+    <% if @article.image.exists? %>
+        <%= image_tag @article.image.url(:medium) %>
+    <% end %>
+
+</p>
+
 <p class="mt-4"><%= @article.body %></p>
 
 <div class="d-flex mt-4">
