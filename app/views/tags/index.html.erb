@@ -1,0 +1,17 @@
+<h1>All Tags</h1>
+
+<ul id="articles">
+  <% @tags.each do |tag| %>
+    <li class='d-flex'>
+      <%= link_to tag.name,  tag_path(tag),
+    class: 'article_title mr-2', id: "article_#{tag.id}" %>
+
+      <%= link_to "Edit", edit_tag_path(tag), class:"mr-2" %>
+      <%= link_to "Delete", tag_path(tag),
+            method: :delete,
+            data: {confirm: "Really delete the tag?"}
+      %>
+    </li>
+
+  <% end %>
+</ul>
