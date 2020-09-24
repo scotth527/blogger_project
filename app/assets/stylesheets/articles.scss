@@ -424,8 +424,8 @@ a.new_article,
 .article_actions a[href$='edit'],
 .article_actions a[data-method='delete'] {
 	position: absolute;
-	top: 87px;
-	right: 200px;
+	top: 87px !important;
+	right: 200px !important;
 	display: inline-block;
 	padding: 4px 11px;
 	font-size: .9em;
