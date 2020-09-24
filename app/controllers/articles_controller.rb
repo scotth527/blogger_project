@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
     include ArticlesHelper
 
+    before_action :require_login, only: [:new, :create, :destroy, :edit, :update]
+
     def index
         ## Instance variable allows both controller and view to access it
         @articles = Article.all

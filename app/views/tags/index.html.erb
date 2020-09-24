@@ -6,11 +6,15 @@
       <%= link_to tag.name,  tag_path(tag),
     class: 'article_title mr-2', id: "article_#{tag.id}" %>
 
-      <%= link_to "Edit", edit_tag_path(tag), class:"mr-2" %>
-      <%= link_to "Delete", tag_path(tag),
-            method: :delete,
-            data: {confirm: "Really delete the tag?"}
-      %>
+    <% if logged_in? %>
+        <%= link_to "Edit", edit_tag_path(tag), class:"mr-2" %>
+        <%= link_to "Delete", tag_path(tag),
+              method: :delete,
+              data: {confirm: "Really delete the tag?"}
+        %>
+    <% end %>
+
+
     </li>
 
   <% end %>
